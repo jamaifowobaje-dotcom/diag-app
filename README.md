@@ -5,7 +5,7 @@ DIAG is a multi-step onboarding and dashboard web application. It walks new user
 
 
 ## Live Demo
-Hosted on Railway: [your-railway-url-here]
+Hosted on Railway: diag-app.up.railway.app
 GitHub Repository: https://github.com/jamaifowobaje-dotcom/diag-app
 
 
@@ -100,6 +100,7 @@ Each onboarding step is a separate page. Without context, passing data between t
 - **Google auth is UI only** — the "Continue with Google" button does not connect to any OAuth provider.
 - **Password hashing is not production-safe** — passwords are base64 encoded, not hashed with bcrypt or similar. This demonstrates the concept without requiring additional dependencies.
 - **Middleware checks cookie existence only** — the `diag_user_id` cookie is not cryptographically verified. A real implementation would use signed JWTs.
+- **Railway free tier cold starts** — Railway's free tier spins down after inactivity. If the app hasn't been accessed recently, the first request may take 20–30 seconds to respond. It works normally after that.
 
 
 ## Bonus Features Implemented
